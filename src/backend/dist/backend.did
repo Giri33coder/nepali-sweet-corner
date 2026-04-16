@@ -1,0 +1,52 @@
+type Timestamp = int;
+type Sweet = 
+ record {
+   category: Category;
+   description: text;
+   id: nat;
+   imagePlaceholder: text;
+   ingredients: vec text;
+   name: text;
+   occasions: vec text;
+   price: text;
+ };
+type ContactInquiry = 
+ record {
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   timestamp: Timestamp;
+ };
+type CateringInquiry = 
+ record {
+   email: text;
+   eventDate: text;
+   guestCount: nat;
+   id: nat;
+   message: text;
+   name: text;
+   phone: text;
+   timestamp: Timestamp;
+ };
+type Category = 
+ variant {
+   Barfi;
+   Chamcham;
+   Laddoo;
+   MishtiDoi;
+   Rasgulla;
+   Sandesh;
+ };
+service : {
+  getAllCateringInquiries: () -> (vec CateringInquiry) query;
+  getAllContactInquiries: () -> (vec ContactInquiry) query;
+  getAllSweets: () -> (vec Sweet) query;
+  getSweetById: (id: nat) -> (opt Sweet) query;
+  getSweetsByCategory: (category: Category) -> (vec Sweet) query;
+  submitCateringInquiry: (name: text, email: text, phone: text, eventDate:
+   text, guestCount: nat, message: text) -> (nat);
+  submitContactInquiry: (name: text, email: text, phone: text, message:
+   text) -> (nat);
+}

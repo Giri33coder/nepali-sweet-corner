@@ -1,0 +1,57 @@
+// Version: 1.0.0
+type Category__636176255 =
+  {#Barfi; #Chamcham; #Laddoo; #MishtiDoi; #Rasgulla; #Sandesh};
+type CateringInquiry__194698672 =
+  {
+    email : Text;
+    eventDate : Text;
+    guestCount : Nat;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text;
+    timestamp : Timestamp__301639476
+  };
+type ContactInquiry__747766738 =
+  {
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : Text;
+    timestamp : Timestamp__301639476
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Sweet__311321910 =
+  {
+    category : Category__636176255;
+    description : Text;
+    id : Nat;
+    imagePlaceholder : Text;
+    ingredients : [Text];
+    name : Text;
+    occasions : [Text];
+    price : Text
+  };
+type Timestamp__301639476 = Int;
+actor {
+  stable caterings :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?CateringInquiry__194698672]];
+      var elementIndex : Nat__490723111
+    };
+  stable contacts :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ContactInquiry__747766738]];
+      var elementIndex : Nat__490723111
+    };
+  stable sweets :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Sweet__311321910]];
+      var elementIndex : Nat__490723111
+    }
+};

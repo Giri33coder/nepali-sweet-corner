@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 1rem;
+
+    /* Soft cream background — warm parchment */
+    --background: 0.975 0.012 82;
+    --foreground: 0.18 0.025 28;
+
+    /* Card — near-white with faint warm tint */
+    --card: 0.99 0.006 78;
+    --card-foreground: 0.18 0.025 28;
+    --popover: 0.99 0.006 78;
+    --popover-foreground: 0.18 0.025 28;
+
+    /* Primary — rich burgundy-red */
+    --primary: 0.45 0.21 18;
+    --primary-foreground: 0.99 0.006 78;
+
+    /* Secondary — warm saffron-tinted cream */
+    --secondary: 0.94 0.025 75;
+    --secondary-foreground: 0.28 0.04 30;
+
+    /* Muted — slightly deeper warm cream */
+    --muted: 0.93 0.018 75;
+    --muted-foreground: 0.48 0.04 40;
+
+    /* Accent — vibrant saffron-gold */
+    --accent: 0.7 0.22 38;
+    --accent-foreground: 0.16 0.02 20;
+
+    --destructive: 0.5 0.25 18;
+    --destructive-foreground: 0.99 0 0;
+
+    /* Border — warm cream border */
+    --border: 0.9 0.025 70;
+    --input: 0.95 0.015 78;
+    --ring: 0.45 0.21 18;
+
+    --chart-1: 0.45 0.21 18;
+    --chart-2: 0.7 0.22 38;
+    --chart-3: 0.75 0.18 50;
+    --chart-4: 0.85 0.12 65;
+    --chart-5: 0.6 0.18 28;
+
+    --sidebar: 0.975 0.012 82;
+    --sidebar-foreground: 0.18 0.025 28;
+    --sidebar-primary: 0.45 0.21 18;
+    --sidebar-primary-foreground: 0.99 0.006 78;
+    --sidebar-accent: 0.7 0.22 38;
+    --sidebar-accent-foreground: 0.16 0.02 20;
+    --sidebar-border: 0.9 0.025 70;
+    --sidebar-ring: 0.45 0.21 18;
+  }
+
+  .dark {
+    --background: 0.1 0.015 18;
+    --foreground: 0.94 0.01 82;
+    --card: 0.14 0.012 22;
+    --card-foreground: 0.94 0.01 82;
+    --popover: 0.18 0.012 28;
+    --popover-foreground: 0.94 0.01 82;
+    --primary: 0.6 0.18 22;
+    --primary-foreground: 0.1 0.015 18;
+    --secondary: 0.28 0.06 32;
+    --secondary-foreground: 0.88 0.01 75;
+    --muted: 0.2 0.01 18;
+    --muted-foreground: 0.65 0.01 65;
+    --accent: 0.72 0.2 42;
+    --accent-foreground: 0.1 0.015 18;
+    --destructive: 0.6 0.2 18;
+    --destructive-foreground: 0.1 0.015 18;
+    --border: 0.26 0.01 22;
+    --input: 0.26 0.01 22;
+    --ring: 0.6 0.18 22;
+    --chart-1: 0.6 0.18 22;
+    --chart-2: 0.72 0.2 42;
+    --chart-3: 0.68 0.22 38;
+    --chart-4: 0.8 0.14 55;
+    --chart-5: 0.58 0.18 28;
+    --sidebar: 0.14 0.012 22;
+    --sidebar-foreground: 0.94 0.01 82;
+    --sidebar-primary: 0.6 0.18 22;
+    --sidebar-primary-foreground: 0.1 0.015 18;
+    --sidebar-accent: 0.72 0.2 42;
+    --sidebar-accent-foreground: 0.1 0.015 18;
+    --sidebar-border: 0.26 0.01 22;
+    --sidebar-ring: 0.6 0.18 22;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+    letter-spacing: -0.01em;
+  }
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Authentic Indian paisley-inspired motif — subtle repeating dots + diamond pattern */
+  .motif-pattern {
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        oklch(0.45 0.21 18 / 0.025) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        oklch(0.7 0.22 38 / 0.02) 1px,
+        transparent 1px
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 20px,
+        oklch(0.45 0.21 18 / 0.015) 20px,
+        oklch(0.45 0.21 18 / 0.015) 21px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0px,
+        transparent 20px,
+        oklch(0.7 0.22 38 / 0.012) 20px,
+        oklch(0.7 0.22 38 / 0.012) 21px
+      );
+    background-size: 40px 40px, 40px 40px, 40px 40px, 40px 40px;
+  }
+
+  /* Saffron-tinted section background */
+  .saffron-section {
+    background-color: oklch(0.97 0.018 68);
+  }
+
+  /* Warm cream veil for hero — reveals shop photo, no orange */
+  .hero-overlay-cream {
+    background: linear-gradient(
+      160deg,
+      oklch(0.12 0.02 20 / 0.55) 0%,
+      oklch(0.1 0.01 15 / 0.3) 50%,
+      oklch(0.12 0.02 25 / 0.6) 100%
+    );
+  }
+
+  /* Premium card hover: scale + saffron glow */
+  .card-hover-glow {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-hover-glow:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 0 1.5px oklch(0.7 0.22 38 / 0.35), 0 12px 36px
+      oklch(0.45 0.21 18 / 0.18), 0 0 28px oklch(0.7 0.22 38 / 0.12);
+  }
+
+  /* Button glow — gold shimmer on hover */
+  .button-glow-accent {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .button-glow-accent:hover {
+    box-shadow: 0 0 16px oklch(0.7 0.22 38 / 0.5), 0 4px 14px
+      oklch(0.45 0.21 18 / 0.15);
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  /* Elevated shadow */
+  .shadow-elevated {
+    box-shadow: 0 8px 32px oklch(0.45 0.21 18 / 0.12);
+  }
+
+  /* Warm saffron/gold shadow */
+  .shadow-warm-accent {
+    box-shadow: 0 4px 16px oklch(0.7 0.22 38 / 0.18);
+  }
+
+  /* General hover lift */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 1px oklch(0.7 0.22 38 / 0.2), 0 10px 28px
+      oklch(0.45 0.21 18 / 0.14);
+  }
+
+  /* Saffron gold text */
+  .text-accent-saffron {
+    color: oklch(var(--accent));
+  }
+
+  /* Deep red accent text */
+  .text-accent-red {
+    color: oklch(var(--primary));
+  }
+
+  /* Saffron gradient button */
+  .saffron-highlight {
+    background: linear-gradient(
+      135deg,
+      oklch(0.7 0.22 38) 0%,
+      oklch(0.65 0.2 45) 100%
+    );
+    color: oklch(0.16 0.02 20);
+  }
+  .saffron-highlight:hover {
+    filter: brightness(1.05);
+    box-shadow: 0 0 16px oklch(0.7 0.22 38 / 0.45);
+  }
+
+  /* Gold border decoration for section headings */
+  .heading-gold-accent::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin: 0.6rem auto 0;
+    background: linear-gradient(90deg, oklch(0.7 0.22 38), oklch(0.65 0.2 45));
+    border-radius: 2px;
+  }
+
+  /* Testimonial card star rating */
+  .star-rating {
+    color: oklch(0.7 0.22 38);
+  }
+
+  /* Hero headline saffron-gold accent */
+  .text-hero-gold {
+    color: oklch(0.8 0.18 42);
+  }
+
+  /* Deep burgundy footer background */
+  .footer-bg {
+    background-color: oklch(0.2 0.06 18);
+  }
+}
